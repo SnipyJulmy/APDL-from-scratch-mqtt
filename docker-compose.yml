@@ -30,3 +30,9 @@ services:
       - "influxdb"
     volumes:
       - ./data/grafana:/var/lib/grafana
+  simple-publisher:
+    build:
+      context: ./simple-publisher/target/docker
+      dockerfile : Dockerfile
+    links :
+      - "mosquitto-mqtt"
